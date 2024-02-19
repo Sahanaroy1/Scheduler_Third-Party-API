@@ -1,23 +1,81 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
+//To create the current date
+var today = dayjs();
+$('#currentDay').text(today.format('dddd, MMMM D, YYYY'));
+  var time = {
+    startHour: 9,
+    endHour: 17
+}
+window.onload = displaySchedule;
+//Is created to save the job to the calender
 $(function () {
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-  //
-  // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
-  //
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
-  // TODO: Add code to display the current date in the header of the page.
+$(document).ready(function (){
+  $('.saveBtn').on('click', function (){
+   
+      var value = $(this).siblings('.description').val();
+      var time = $(this).parent().attr('data-name');
+      
+      localStorage.setItem("hour-"+time, value);
+
+     $("#notification").text("Appointment added to Local storage");
+    
+      setTimeout(function(){
+        $("#notification").text("");
+      }, 5000);
+  })
+})
 });
+//To show the task in the calender even after the page is refreshed
+function displaySchedule(){
+  console.log("display");
+  generateTimeSlot();
+  updateTimeSlot();
+ 
+  for(var i = 0; i < localStorage.length; i++){
+  var record = localStorage.getItem(localStorage.key(i));
+
+  $("#" + localStorage.key(i)).children('textarea').eq(0).text(record);
+  
+}
+}
+//to generate the time slot
+function generateTimeSlot(){
+
+  for( var hour = time.startHour; hour <= time.endHour; hour++){
+      var savedTask = localStorage.getItem(time) || '';
+    
+    var html = ` <div id="hour-${hour}" class="row time-block past" data-name=${hour}>
+                    <div class="col-2 col-md-1 hour text-center py-3">${hour}</div>
+                    <textarea class="col-8 col-md-10 description" rows="3">${savedTask}</textarea>
+                    <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    </button>
+                 </div>`
+        $('.container-lg').append(html);
+  }
+}
+//To change the colour according to the time of the day
+function updateTimeSlot(){
+  var currentHour = dayjs().hour();
+
+  $('.time-block').each(function (index, element){
+    console.log($(element).attr('data-name'));
+    var hour = $(element).attr('data-name');
+   
+    if(hour < currentHour){
+      $(element).find('.description').addClass('past');
+    }else if(hour == currentHour){
+      $(element).find('.description').addClass('present');
+    }else{
+      $(element).find('.description').addClass('future');
+    }
+  })
+}
+//To generate the previous page 
+function previousButton(){
+  var previousDay = dayjs().add(-1, 'day');
+  $('#currentDay').text(previousDay.format('dddd, MMMM D, YYYY'))
+
+}
+  $('.previous').on('click', previousButton);
+
+  
