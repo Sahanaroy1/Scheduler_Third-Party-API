@@ -5,11 +5,11 @@ $('#currentDay').text(today.format('dddd, MMMM D, YYYY,  h:mm A'));
     startHour: 9,
     endHour: 17
 }
-window.onload = displaySchedule;
+window.onload = displaySchedule();
 //Is created to save the job to the calender
 
 $(document).ready(function (){
-  displaySchedule();
+ // displaySchedule();
   $('.saveBtn').on('click', function (){
    
       var value = $(this).siblings('.description').val();
