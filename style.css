@@ -1,8 +1,11 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  background-color: rgb(249, 228, 246);
 }
-
+.hour{
+  border-radius: 15px 0 0 15px;
+}
 textarea {
   background: transparent;
   border: none;
@@ -18,10 +21,22 @@ textarea {
 .next{
   float: right;
 }
-#notification{
+#notification {
   display: flex;
   justify-content: center;
-  
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(42, 25, 43);
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+footer{
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(42, 25, 43);
+  font-size: 30px;
+  color: #441a18;
 }
 .description {
   white-space: pre-wrap;
@@ -67,4 +82,16 @@ textarea {
 .saveBtn i:hover {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
+}
+h1  {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: rgb(42, 25, 43);
+  font-weight: bolder;
+
+}
+p{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: rgb(42, 25, 43);
+  font-weight: bolder;
+  font-size:20px;
 }

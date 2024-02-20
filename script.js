@@ -1,14 +1,15 @@
 //To create the current date
 var today = dayjs();
-$('#currentDay').text(today.format('dddd, MMMM D, YYYY'));
+$('#currentDay').text(today.format('dddd, MMMM D, YYYY,  h:mm A'));
   var time = {
     startHour: 9,
     endHour: 17
 }
 window.onload = displaySchedule;
 //Is created to save the job to the calender
-$(function () {
+
 $(document).ready(function (){
+  displaySchedule();
   $('.saveBtn').on('click', function (){
    
       var value = $(this).siblings('.description').val();
@@ -16,14 +17,14 @@ $(document).ready(function (){
       
       localStorage.setItem("hour-"+time, value);
 
-     $("#notification").text("Appointment added to Local storage");
+     $("#notification").text("Appointment added to Local storage ✅");
     
       setTimeout(function(){
         $("#notification").text("");
       }, 5000);
   })
 })
-});
+
 //To show the task in the calender even after the page is refreshed
 function displaySchedule(){
   console.log("display");
