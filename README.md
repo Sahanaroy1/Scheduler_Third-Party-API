@@ -18,3 +18,4 @@
 https://sahanaroy1.github.io/Scheduler_Third-Party-API/
 
 # Snippet of the Sceduler:
+<img width="1423" alt="Scheduler" src="https://github.com/Sahanaroy1/Scheduler_Third-Party-API/assets/127791384/9fb5b4c2-e512-442e-b3d7-025a947b40a3">
