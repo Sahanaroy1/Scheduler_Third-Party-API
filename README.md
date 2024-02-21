@@ -7,12 +7,13 @@
 * The current date is modified with the Day.js (a Javascript library). To manage the time effectively the important events are saved in the daily planner.
 
  ## Acceptance Criteria
-* It's done when the window loads the current date is displayed at the top of the page.
-* It's done with on load of the page the timblocks is displayed from 9:00am - 5:00pm.
-* It's done when the timeblock is presented with colour code,like if the time is passed its grey, present time is showed in red and future time diplayed in green.
-* Its done when I enter the event in the respective timeblock and click the save button a message is displayed at the top of the page that data is stored in the local storage.
-* It's done when the displayed messag disappears after 5 secs.
-* It's done when the we refresh the page the events keeps displaying on the page. 
+* It's done when the current date and time is displayed on the top of the page on page load.
+* It's done when  the timeblocks is displayed from 9:00am - 5:00pm on page load.
+* It's presented with colour code.
+* It's done when passed time is shown in grey, present time is shown in red and future time diplayed in green.
+* Its done when text is entered in the timeblock and click the save button a message is displayed at the top of the page that data is stored in the local storage.
+* It's done when the displayed message disappears after 5 secs.
+* It's done when the previously saved messages are displayed on page load.
 
 * Deployed Link:
 https://sahanaroy1.github.io/Scheduler_Third-Party-API/
